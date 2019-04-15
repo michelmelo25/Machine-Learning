@@ -1,8 +1,8 @@
 # Lista de Exercícios 06 
 
 1. Implemente as 2 classes a seguir e adicione à sua biblioteca de pre-processamento em Python no arquivo **transform.py** :
-    + Normalize
-    + Standardize
+    + **Normalize**
+    + **Standardize**
 2. Ambas devem ter os métodos **fit(X)** e **transform(X)**.
     + fit - percorre a matriz de entrada e obtém os valores necessários aos cálculos específicos de cada classe:
         + Normalize obtém min e max.
@@ -24,4 +24,4 @@
     + Faça o melhor pre-processamento possível para tornar tal dataset adequado para uso nos algoritmos de aprendizagem de máquina para classificação. Use 70% dos dados para treino e outros 30% para teste.
     + Faça atribuição da média da coluna para valores faltantes, caso o percentual de valores faltantes da coluna não seja muito grande.
     + Transforme categorias usadas nas features e label em números. Categorias que não possuem uma ordem implícita devem ser transformadas em features binárias.
-    + Compare os resultados obtidos entre os algoritmos acima usando a métrica accuracy (implemente-a no arquivo metrics.py de sua bliblioteca Python).
+    + Compare os resultados obtidos entre os algoritmos acima usando a métrica accuracy (implemente-a no arquivo **metrics.py** de sua bliblioteca Python).
