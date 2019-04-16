@@ -2,34 +2,24 @@ import numpy as np
 
 class normalize:
     
-    vals = {}
-    
-    def fit(X):
-        vals.clear()
-        n_cols = X.shape[1]
-        for i in range(n_cols):
-            vals.update({i: {'min': np.min(X[:,i]),'max': np.max(X[:,i])}})
-        return vals
-            
-    def transform(X):
-        n_cols = X.shape[1]
-        for i in range(n_cols):
-            X[:,i] = (X[:,i] - vals[i]['min'])/(vals[i]['max'] - vals[i]['min'])
-        return X
+    X_min = None
+    X_max = None
+     
+    def fit(self,X):
+        self.X_max = X.max()
+        self.X_min = X.min()
+        
+    def transform(self,X):
+        return (X - self.X_min) / (self.X_max - self.X_min)
 
 class standardize :
     
-    vals = {}
-    
-    def fit(X):
-        vals.clear()
-        n_cols= X.shape[1]
-        for i in range(n_cols):
-            vals.update({i: {'mean': np.mean(X[:,i]),'std': np.std(X[:,i])}})
-        return vals
-    
-    def transform(X):
-        n_cols = X.shape[1]
-        for i in range(n_cols):
-            X[:,i] = (X[:,i] - vals[i]['mean'])/(vals[i]['std'])
-        return X
+    X_avg = None
+    X_std = None
+     
+    def fit(self,X):
+        self.X_avg = X.mean()
+        self.X_std = X.std()
+     
+    def transform(self,X):
+        return (X - self.X_avg) / self.X_std
